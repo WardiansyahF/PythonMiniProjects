@@ -1,7 +1,27 @@
 import random 
-import judge
 
-    
+
+def check(hand) :
+    if hand > 2 or hand < 0 :
+        return False
+    return True
+
+def choice(hand, name) :
+    hands = ['Rock','Paper','Scissors']
+    return print(name + ' Pick : ' +  hands[hand])
+
+def result(player,computer) :
+    if  computer == player :
+        return 'Draw!'
+    elif computer == 0 and player == 1 :
+        return 'You Win!'
+    elif computer == 1 and player == 2  :
+        return 'You Win!'
+    elif computer == 2 and player == 0 :
+        return 'You Win!'
+    else :
+        return 'You Lose!'
+        
 print('================================================')
 print('======Welcome to Rock,Paper,Scissors Game!======')
 print('================================================')  
@@ -14,11 +34,11 @@ while play == 'Y':
     print('Select one : (Rock : 0, Scissors : 1, Paper : 2)')
     player_pick = int(input('Input the number (0-2): '))
     
-    if judge.check(player_pick) :
-        judge.choice(player_pick, player)
+    if check(player_pick) :
+        choice(player_pick, player)
         computer_pick = random.randint(0,2)
-        judge.choice(computer_pick, 'Computer')
-        print('The result is : ' + judge.result(player_pick, computer_pick))
+        choice(computer_pick, 'Computer')
+        print('The result is : ' + result(player_pick, computer_pick))
     else :
         print('You enter the wrong number, please try again!')
         
